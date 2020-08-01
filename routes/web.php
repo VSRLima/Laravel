@@ -24,3 +24,41 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/contato', function () {
+    return view('contact');
+});
+
+Route::get('/empresa', function () {
+    return 'Sobre a empresa';
+});
+
+Route::any('/any', function () {
+    return 'Any';
+});
+
+Route::match(['get', 'post'], '/match', function () {
+    return 'match';
+});
+Route::get('/categoria/{flag}', function ($flag) {
+    return "Produtos da categoria: {$flag}";
+});
+
+Route::get('/categorias/{flag}/posts', function ($flag) {
+    return "Posts da categoria: {$flag}";
+});
+
+Route::get('/produtos/{idProduct?}', function ($idProduct = "") {
+    return "Produtos {$idProduct}";
+});
+
+Route::redirect('/redirect1', 'redirect02');
+// Route::get('redirect1', function () {
+//     return redirect('/redirect02');
+// });
+
+Route::get('redirect02', function () {
+    return "redirect 02";
+});
+
+Route::view('/view', 'welcome');
