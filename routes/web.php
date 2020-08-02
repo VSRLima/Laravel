@@ -61,4 +61,23 @@ Route::get('redirect02', function () {
     return "redirect 02";
 });
 
+Route::get('redirect03', function () {
+    return redirect()->route('url.name');
+});
 Route::view('/view', 'welcome');
+
+Route::get('/name-url', function() {
+    return 'Hey hey hey';
+})->name('url.name');
+
+Route::get('/admin/dashboard', function() {
+    return 'Home Admin';
+});
+
+Route::get('/admin/financeiro', function() {
+    return 'Financeiro Admin';
+});
+
+Route::get('/admin/produtos', function() {
+    return 'Produtos Admin';
+});
